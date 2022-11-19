@@ -23,5 +23,14 @@ class Cast:
             result = self._actors[group][0]
         
         return result
+    
+    def get_secound_actor(self, group):
+        result = None
+
+        if group in self._actors.keys():
+            result = self._actors[group][0]
+        
+        return result
+
 
         
