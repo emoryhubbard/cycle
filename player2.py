@@ -58,6 +58,8 @@ class Player2:
         self._position = Point(x, y)
         if not self._velocity.equals(Point(0, 0)): #only add trail if it moves
             self.move_first_trail()
+
+    
       
     def move_first_trail(self):
         self._trails[0].move_next()
