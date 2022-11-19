@@ -12,7 +12,7 @@ class Player1:
         self._text = ""
         self._font_size = 15
         self._color = Color(245,245,245)
-        quarter_of_width = int(constants.MAX_X / 4)
+        quarter_of_width = constants.CELL_SIZE * 15
         half_of_height = int(constants.MAX_Y / 2)
         self._position = Point(quarter_of_width, half_of_height)
         self._velocity = Point(0,0)
