@@ -28,16 +28,16 @@ class ControlActorsAction(Action):
         if p1_direction != None:
             player1.turn_bike(p1_direction)
 
-        if self._input_service.is_key_down('i'):
+        if self._input_service.is_key_down('j'):
             p2_direction = Point(-constants.CELL_SIZE, 0)
 
-        if self._input_service.is_key_down('j'):
+        if self._input_service.is_key_down('l'):
             p2_direction = Point(constants.CELL_SIZE, 0)
 
-        if self._input_service.is_key_down('k'):
+        if self._input_service.is_key_down('i'):
             p2_direction = Point(0, -constants.CELL_SIZE)
 
-        if self._input_service.is_key_down('l'):
+        if self._input_service.is_key_down('k'):
             p2_direction = Point(0, constants.CELL_SIZE)
         #if p2_direction isn't None, p2 pressed the key
         player2 = cast.get_first_actor("players")
