@@ -3,7 +3,7 @@ from color import Color
 from point import Point
 from drawable import Drawable
 
-class Player1:
+class Player2:
 
 
 
@@ -12,8 +12,8 @@ class Player1:
         self._text = ""
         self._font_size = 15
         self._color = Color(245,245,245)
-        three_quarters_width = int(constants.MAX_X / 4)*3 
-        half_of_height = int(constants.MAX_Y / 2)
+        three_quarters_width = int(constants.MAX_X / 9)*5
+        half_of_height = int(constants.MAX_Y / 4)
         self._position = Point(three_quarters_width, half_of_height)
         self._velocity = Point(0,0)
         self._trails = []
@@ -23,10 +23,16 @@ class Player1:
         trail.set_velocity(Point(0, 0))
         trail.set_text("@")
         trail.set_color(self._color)
-        self.add_trail(trail)
-
-    def add_trail(self, trail):
         self._trails.append(trail)
+
+    def add_trail(self):
+        self._trail = Drawable()
+        #use previous position to generate trail there and NOT STEP ON IT
+        self._trail.set_position(self._old_position)
+        self._trail.set_velocity(Point(0, 0))
+        self._trail.set_text("#")
+        self._trail.set_color(self._color)
+        self._trails.append(self._trail)
     
     def get_color(self):
 
@@ -48,11 +54,14 @@ class Player1:
 
         x = (self._position.get_x() + self._velocity.get_x()) % constants.MAX_X
         y = (self._position.get_y() + self._velocity.get_y()) % constants.MAX_Y
+        self._old_position = self._position
         self._position = Point(x, y)
-        self.move_first_trail()
-    
+        if not self._velocity.equals(Point(0, 0)): #only add trail if it moves
+            self.move_first_trail()
+      
     def move_first_trail(self):
         self._trails[0].move_next()
+        self.add_trail()
 
     def set_color(self,color):
 
