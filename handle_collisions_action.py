@@ -21,16 +21,17 @@ class handle_collision_actions(Action):
         bike1 = cast.get_first_actor("players")
         head1 = bike1.get_actors()[0]
         trails1 = bike1.get_actors()
+        bike2 = cast.get_second_actor("players")
+        head2 = bike2.get_actors()[0]
         trails2 = bike2.get_actors()
+
         print(len(trails1))
         for trail in trails1:
             if trail != head1 and head1.get_position().equals(trails1.get_position()):
                 self._game_over = True
             if head1.get_position().equals(trails2.get_position()):
                 self._game_over = True
-        bike2 = cast.get_second_actor("players")
-        head2 = bike2.get_actors()[0]
-        trails2 = bike2.get_actors()
+                
         print(len(trails2))
         for trail in trails2:
             if trail != head2 and head2.get_position().equals(trail.get_position()):
