@@ -24,7 +24,7 @@ class Cast:
         
         return result
     
-    def get_secound_actor(self, group):
+    def get_second_actor(self, group):
         result = None
 
         if group in self._actors.keys():
