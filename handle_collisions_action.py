@@ -13,6 +13,7 @@ class handle_collision_actions(Action):
 
         if not self._game_over:
             self._handle_trails_collision(cast)
+            self._handle_trails_collision_player2(cast)
             self._handle_game_over(cast)
 
     def _handle_trails_collision(self, cast):
@@ -24,6 +25,16 @@ class handle_collision_actions(Action):
         for trail in trails:
             if trail != head and head.get_position().equals(trail.get_position()):
                 self._game_over = True
+    def _handle_trails_collision_player2(self, cast):
+
+        bike = cast.get_second_actor("players")
+        head = bike.get_actors()[0]
+        trails = bike.get_actors()
+        print(len(trails))
+        for trail in trails:
+            if trail != head and head.get_position().equals(trail.get_position()):
+                self._game_over = True
+        
 
 
     def _handle_game_over(self, cast):
