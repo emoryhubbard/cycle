@@ -14,7 +14,6 @@ class handle_collision_actions(Action):
 
         if not self._game_over:
             self._handle_trails_collision(cast)
-            self._handle_trails_collision_player2(cast)
             self._handle_game_over(cast)
 
     def _handle_trails_collision(self, cast):
