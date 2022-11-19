@@ -10,8 +10,8 @@ class ControlActorsAction(Action):
 
     def execute(self, cast):
         p1_direction = None #p1 hasn't pressed key
-        p2_direction = None#p2 hasn't pressed key.
-        
+        p2_direction = None #p2 hasn't pressed key.
+
         if self._input_service.is_key_down('a'):
             p1_direction = Point(-constants.CELL_SIZE, 0)
 
@@ -41,6 +41,6 @@ class ControlActorsAction(Action):
         if self._input_service.is_key_down('k'):
             p2_direction = Point(0, constants.CELL_SIZE)
         #if p2_direction isn't None, p2 pressed the key
-        player2 = cast.get_first_actor("players")
+        player2 = cast.get_secound_actor("players")
         if p2_direction != None:
             player2.turn_bike(p2_direction)
