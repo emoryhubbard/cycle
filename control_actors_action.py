@@ -11,6 +11,7 @@ class ControlActorsAction(Action):
     def execute(self, cast):
         p1_direction = None #p1 hasn't pressed key
         p2_direction = None#p2 hasn't pressed key.
+        
         if self._input_service.is_key_down('a'):
             p1_direction = Point(-constants.CELL_SIZE, 0)
 
