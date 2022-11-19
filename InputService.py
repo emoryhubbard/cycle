@@ -14,6 +14,10 @@ class InputService:
         self.k['k'] = pyray.KEY_K
         self.k['l'] = pyray.KEY_L
     
+    def is_key_up(self, key):
+        pyray_key = self.k[key.lower()]
+
+        return pyray.is_key_up(pyray_key)
     
     def is_key_down(self, key):
         pyray_key = self.k[key.lower()]
