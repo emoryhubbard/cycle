@@ -28,7 +28,7 @@ class Cast:
         result = None
 
         if group in self._actors.keys():
-            result = self._actors[group][0]
+            result = self._actors[group][1]
         
         return result
 
