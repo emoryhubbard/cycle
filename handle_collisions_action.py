@@ -50,6 +50,8 @@ class handle_collision_actions(Action):
 
             message = Drawable()
             message = Drawable()
+            pyray.begin_drawing()
+            pyray.clear_background(pyray.BLACK)
             message.set_text("The Game is Over!")
             message.set_position(position)
             cast.add_actor("messages", message)
